@@ -96,15 +96,13 @@ while True:
       nfiles = len(dirlist)
     fnlast = dirlist[-1][1]
     x,y = read_jws(fnlast)
-    y267 = y[x==266][0]
+    y266 = y[x==266][0]
     y332 = y[x==332][0]
     y500 = y[x==500][0]
-    y340 = y[x==340][0]
-    y341 = y[x==341][0]
-    yt = y267 - y500 + y341 - y340
-    yi = y332 - y500 + y341 - y340
+    yt = y266 - y500
+    yi = y332 - y500
     z = yt / yi
-    plt.scatter(i, y267, color='blue')
+    plt.scatter(i, y266, color='blue')
     plt.scatter(i, y332, color='red')
     plt.scatter(i, z, color='green')
 
@@ -135,7 +133,7 @@ while True:
       
       spoxidon = True
       spreducon = True
-    logline = (time.time(), spreducon, spoxidon, y332, y267, y500, yi, yt, z)
+    logline = (time.time(), spreducon, spoxidon, y332, y266, y500, yi, yt, z)
     print(logline)
     f = open(fnlog, 'a')
     f.write('\t'.join(map(str, logline)))
